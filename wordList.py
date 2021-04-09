@@ -52,6 +52,20 @@ def wed_scraping_bot(urls):
 
 
     if __name__ == "__main__":
-    urlx = generate_urls(URL, 1, 3)
-    eng_words = wed_scraping_bot(urlx
-    print(eng_words)
+        urlx = generate_urls(URL, 1, 3)
+        eng_words = wed_scraping_bot(urlx)
+        print(eng_words)
+
+def save_to_csv(words,file):
+    with open (file, "w+", newline="", encoding="utf-8") as fp:
+    writer = csv.writer(fp)
+    for word in words:
+        writer.writerow(word)
+
+
+if __name__ == "__main__":
+    urlx = generrate_urls(URL, 1, 3)
+    eng_words = wed_scraping_bot(urlx)
+    for item in eng_words:
+        print(itme)
+    save_to_csv(eng words,"engwordlist 1.csv")    
