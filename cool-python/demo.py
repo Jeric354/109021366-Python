@@ -1,8 +1,7 @@
 import sys
 from PIL import Image, ImageFilter
 
-#等比例縮放功能
-def resizeImg(imgName):
+def resizeImg(imgName):                                               
     try:
         img = Image.open(imgName)
         print("Current size (width, height)", img.size)
@@ -18,7 +17,6 @@ def resizeImg(imgName):
     except FileNotFoundError as fnfe:
         print(fnfe)
 
-#圖片旋轉功能
 def rotateImg(imgName):
     try:
         img = Image.open(imgName)
@@ -56,7 +54,6 @@ def rotateImg(imgName):
     except FileNotFoundError as fnfe:
         print(fnfe)
 
-#縮圖功能
 def genThumbnail(imgName):
     try:
         img = Image.open(imgName)
@@ -70,7 +67,7 @@ def genThumbnail(imgName):
     except FileNotFoundError as fnfe:
         print(fnfe)    
 
-#濾淨功能
+
 def applyFilter(imgName):
     try:
         im = Image.open(imgName)
@@ -123,7 +120,7 @@ def applyFilter(imgName):
     except FileNotFoundError as fnfe:
         print(fnfe)
           
-#選項
+
 def showMenu():
     print("======================")
     print("1: 等比例縮放")
@@ -132,7 +129,7 @@ def showMenu():
     print("4: 套用濾鏡")
     print("0: 結束")
 
-#用while迴圈，讓選擇更方便
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         while True:
