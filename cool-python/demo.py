@@ -1,6 +1,6 @@
 import sys
 from PIL import Image, ImageFilter
-
+#等比縮放功能
 def resizeImg(imgName):                                               
     try:
         img = Image.open(imgName)
@@ -12,11 +12,11 @@ def resizeImg(imgName):
         print("new image size: ", resizeImg.size)
         dotIndex = imgName.index(".")
         newImgName = imgName[:dotIndex] + "_resized" + imgName[dotIndex:]
-        resizeImg.save(newImgName)
+        resizeImg.save(newImgName)                                               #儲存新的檔名
         print("Resizeed img is saved as", newImgName, "\n")
     except FileNotFoundError as fnfe:
         print(fnfe)
-
+#圖片選轉功能
 def rotateImg(imgName):
     try:
         img = Image.open(imgName)
@@ -49,11 +49,11 @@ def rotateImg(imgName):
             str1 = "_rotate_" + str(rotDegree) 
         dotIndex = imgName.index(".")
         newImgName = imgName[:dotIndex] + str1 + imgName[dotIndex:]
-        newIm.save(newImgName)
+        newIm.save(newImgName)                                       #儲存新的檔名
         print("Rotated image is saved as", newImgName,"\n")
     except FileNotFoundError as fnfe:
         print(fnfe)
-
+#產生縮圖功能
 def genThumbnail(imgName):
     try:
         img = Image.open(imgName)
@@ -62,12 +62,12 @@ def genThumbnail(imgName):
         img.thumbnail((newWidth, newHeight))
         dotIndex = imgName.index(".")
         newImgName = imgName[:dotIndex] + "_thumbnail" + imgName[dotIndex:]
-        img.save(newImgName)
+        img.save(newImgName)                                                        #儲存新的檔名
         print("Thumbnail image is saved as ", newImgName, "\n")
     except FileNotFoundError as fnfe:
         print(fnfe)    
 
-
+#濾鏡功能
 def applyFilter(imgName):
     try:
         im = Image.open(imgName)
@@ -115,12 +115,12 @@ def applyFilter(imgName):
             str1 = "_SHARPEN"
         dotIndex = imgName.index(".")
         newImgName = imgName[:dotIndex] + str1 + imgName[dotIndex:]
-        newImg.save(newImgName)    
+        newImg.save(newImgName)                                           #儲存新的檔名
         print("Filtered image is saved as ", newImgName, "\n")
     except FileNotFoundError as fnfe:
         print(fnfe)
           
-
+#顯示選項功能
 def showMenu():
     print("======================")
     print("1: 等比例縮放")
@@ -129,7 +129,7 @@ def showMenu():
     print("4: 套用濾鏡")
     print("0: 結束")
 
-
+#利用while迴圈，讓使用者比較好辨識
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         while True:
