@@ -4,11 +4,11 @@ from PIL import Image, ImageFilter
 def resizeImg(imgName):                                               
     try:
         img = Image.open(imgName)
-        print("Current size (width, height)", img.size)
-        newWidth = int(input("new width: "))
-        ratio = float(newWidth) / img.size[0]
+        print("Current size (width, height)", img.size)       #顯示高度寬度
+        newWidth = int(input("new width: "))                  #輸入新的寬度
+        ratio = float(newWidth) / img.size[0]                 #寬度除以原本大小，計算出新的圖片大小
         newHeight = int(img.size[1] * ratio)
-        resizeImg = img.resize( (newWidth, newHeight), Image.BILINEAR)
+        resizeImg = img.resize( (newWidth, newHeight), Image.BILINEAR)   #放大
         print("new image size: ", resizeImg.size)
         dotIndex = imgName.index(".")
         newImgName = imgName[:dotIndex] + "_resized" + imgName[dotIndex:]
@@ -63,11 +63,11 @@ def genThumbnail(imgName):
         dotIndex = imgName.index(".")
         newImgName = imgName[:dotIndex] + "_thumbnail" + imgName[dotIndex:]
         img.save(newImgName)                                                        #儲存新的檔名
-        print("Thumbnail image is saved as ", newImgName, "\n")
+        print("Thumbnail image is saved as ", newImgName, "\n")  #提醒錯誤訊息
     except FileNotFoundError as fnfe:
         print(fnfe)    
 
-#濾鏡功能
+#濾鏡選項功能
 def applyFilter(imgName):
     try:
         im = Image.open(imgName)
@@ -147,4 +147,4 @@ if __name__ == "__main__":
                 print("bye")
                 break    
     else:
-        print("argument error")    
+        print("argument error")    #提醒要加參數
